@@ -41,8 +41,7 @@ class Customer:
     def name(self, name):
         if isinstance(name, str) and 1 <= len(name) <= 15:
             self._name = name
-        # else:
-        #     raise Exception
+  
 
     def orders(self):
         return [order for order in Order.all if order.customer is self]
@@ -51,8 +50,7 @@ class Customer:
         return list({order.coffee for order in self.orders()})
 
     def create_order(self, new_coffee, new_price):
-        # remember to pass the values in this order
-        # customer, coffee, price
+
         return Order(self, new_coffee, new_price)
 
     @classmethod
@@ -89,9 +87,7 @@ class Order:
     def customer(self, customer):
         if isinstance(customer, Customer):
             self._customer = customer
-        # else:
-        #     raise Exception
-
+      
     @property
     def coffee(self):
         return self._coffee
@@ -100,8 +96,7 @@ class Order:
     def coffee(self, coffee):
         if isinstance(coffee, Coffee):
             self._coffee = coffee
-        # else:
-        #     raise Exception
+ 
 
     @property
     def price(self):
@@ -115,5 +110,3 @@ class Order:
             and not hasattr(self, "price")
         ):
             self._price = price
-        # else:
-        #     raise Exception
